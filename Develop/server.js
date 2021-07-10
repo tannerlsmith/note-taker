@@ -3,6 +3,7 @@
 const express = require('express')
 const app = express()
 const htmlroutes = require('./routes/htmlroutes')
+const apiRoutes = require('./routes/apiRoutes')
 
 app.use(express.json())
 
@@ -11,7 +12,9 @@ app.use(express.urlencoded({
     extended: true
 }))
 
+// Needs to be in order to return things in order
 app.use(express.static('public'))
+app.use(apiRoutes)
 app.use(htmlroutes)
 
 const port = 3001
