@@ -15,10 +15,10 @@ router.get('/api/notes', (req, res) =>{
 
 router.post('/api/notes', (req, res) => {
     // for new notes
-    const newNote = request.body;
+    const newNote = req.body;
 
     // for newNote id
-    console.log('\n\nPOST request - New Note : ' + JSON.stringify(newnote));
+    console.log('\n\nPOST req - newNote : ' + JSON.stringify(newNote));
     newNote.id = uuidv1();
     let data = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
 
@@ -26,12 +26,13 @@ router.post('/api/notes', (req, res) => {
     data.push(newNote);
     fs.writeFileSync('./db.db.json', JSON.stringify(data));
     console.log("\nSuccessfully added new note to 'db.json' file");
-    response.json(data);
+    res.json(data);
 
 
 })
 
 module.exports = router
+
 
 
 
