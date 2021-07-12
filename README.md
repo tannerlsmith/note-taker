@@ -1,6 +1,5 @@
 # Note Taker Starter Code
 
-https://tannerlsmith.github.io/note-taker/
 
 
 
