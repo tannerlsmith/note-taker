@@ -28,6 +28,8 @@ router.post('/api/notes', (req, res) => {
     console.log("\nSuccessfully added new note to 'db.json' file");
     res.json(data);
 
+    
+
 
 })
 
