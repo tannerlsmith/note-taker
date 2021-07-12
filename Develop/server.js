@@ -4,6 +4,7 @@ const express = require('express')
 const app = express()
 const htmlroutes = require('./routes/htmlroutes')
 const apiRoutes = require('./routes/apiRoutes')
+const PORT = process.env.PORT || 3001;
 
 app.use(express.json())
 
@@ -17,7 +18,11 @@ app.use(express.static('public'))
 app.use(apiRoutes)
 app.use(htmlroutes)
 
-const port = 3001
-app.listen(port, ()=>{
-    console.log('listening on port: ' + port)
-})
+// const port = 3001
+// app.listen(port, ()=>{
+//     console.log('listening on port: ' + port)
+// })
+
+app.listen(PORT, () => {
+    console.log(`API server now on port ${PORT}!`);
+  });
