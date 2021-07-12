@@ -7,7 +7,7 @@ const { v1: uuidv1 } = require('uuid');
 
 router.get('/api/notes', (req, res) =>{
     console.log('in the get route')
-    fs.readFile('./db/db.json', (err, data) =>{
+    fs.readFile('./db.db.json', (err, data) =>{
         if (err) throw err;
         res.send(data)
     })
@@ -20,7 +20,7 @@ router.post('/api/notes', (req, res) => {
     // for newNote id
     console.log('\n\nPOST req - newNote : ' + JSON.stringify(newNote));
     newNote.id = uuidv1();
-    let data = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
+    let data = JSON.parse(fs.readFileSync('./db.db.json', 'utf8'));
 
     // Writes new note
     data.push(newNote);
