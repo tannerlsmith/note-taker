@@ -19,7 +19,7 @@ router.post('/api/notes', (req, res) => {
 
     // for newNote id
     console.log('\n\nPOST req - newNote : ' + JSON.stringify(newNote));
-    newNote.id = uuidv1();
+    newNote.id = uuidv4();
     let data = JSON.parse(fs.readFileSync('./db.db.json', 'utf8'));
 
     // Writes new note
